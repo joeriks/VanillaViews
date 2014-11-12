@@ -1,7 +1,8 @@
 Vanilla C# views
 ================
 
-#noViewEngine ;)
+tl;dr; if you are good at C# and like DRY, refactoring and TDD, and if you usually get ready made HTML, then you'll probably get more
+productive with pure C# (creating HTML strings) than with Razor.
 
 Mixing languages is always a source of possible friction, Microsoft did a great work creating the Razor View Engine. But
 I think it sometimes add more problems than it solves. An initial assumption is that we need to keep HTML files separate from
@@ -54,6 +55,14 @@ For example in the way I show below.
 In my sample view I use 100% vanilla code intentionally. Naturally it would be easy to add some helper functions, base
 classes or extension methods to get leaner code. The purpose here is to show a starting point for such work and that HTML
 can be done easily with what we have in C#.
+
+**Tests and HTML prototypes**
+Keep the HTML prototypes in a folder in your test project
+
+	/tests/prototypes/index.html
+
+Then compare your views with the contents of those files. Use HtmlAgilityPack or CsQuery to be able to compare the HTML - or parts
+of the HTML easily.
 
 **Performance**
 
