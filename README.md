@@ -3,14 +3,21 @@ VanillaViews
 
 Vanilla C# #noViewEngine ;)
 
-One thing I dont't like with Razor is how much we regard HTML as more important than our C# code. 
+Mixing languages is always a source of possible friction, Microsoft did a great work creating the Razor View Engine. But
+I think it sometimes add more problems that is solves. An initial assumption is that we need to keep HTML files separate from
+our C# code. Because (at least I think this is the reason) we like HTML-designers handle the HTML files in a project. However -
+with Razor our designers need to understand both Razor syntax, and how the data is structured in our application. From my experience
+the designers are most happy when they can focus 100% on the HTML part, creating pure HTML prototypes.
 
-We like it to be available to the designers - but yet we never let them do the hard work which is
-creating dynamic parts of HTML where the tag structure and content is very bound to whatever HTML
-tool / library we are using. Instead we usually let them do a HTML prototype.
+From ready made, nicely designed HTML prototypes, I find it to be a rather small part of the work to re-create the HTML dynamically
+from C#. And when I get another HTML page to add to the project, or some existing page gets redesigned, it's really not much work
+to redo it either.
 
-And then we are responsible to extend it and reuse components. With the tools given to us in Razor, 
-which is really a bunch of hacks compared to what we already have in C#.
+With vanilla C#-to HTML code I can easily create tests which I run until I'm done with the actual code. Also, I keep the tests and can 
+refactor my C# how much I want.
+
+I'm responsible for the application, and to extend and reuse the design components in a maintainable way. When I use Razor I often find
+myself using more complicated, less testable and less DRY code compared to when I do it with pure vanilla C#.
 
 **Things I dislike in Razor which I get easily in Vanilla Views:**
 
@@ -23,6 +30,7 @@ to like
 - I can reuse helpers (which are same kind of vanilla views, or plain text functions) the way I'm used to
 - I can test the views completely free from web context since they simply are classes with overridden ToString()
 methods
+- I 
 
 **One way or work that works good with this method**
 
@@ -32,6 +40,18 @@ methods
 4) Create Views and Subviews/components the way you always work in C# (classes / inheritance / DI / whatever you need)
 5) Make tests pass
 6) Repeat 4-5 to refactor as much as you like
+
+**A note about dry and extensibility**
+
+In my sample view I use 100% vanilla code intentionally. Naturally it would be easy to add some helper functions, base
+classes or extension methods to get leaner code. The purpose here is to show a starting point for such work and that HTML
+can be done easily with what we have in C#.
+
+**Performance**
+
+Vanilla views might be a little bit less performant if we create complex structures with lots of levels = lots of function calls, 
+but I find that risk small, and probably not noticeable in a real life web application. Also - if we go that far we could add 
+cacheing or other methods to speed it up.
 
 **Sample view:**
 
@@ -45,12 +65,12 @@ methods
         public string[] ListItems {get;set;}
 
         //
-        // Layout definition as a standard func 
+        // Layout definition as a standard func (could be placed in a base class or interface)
         //
         public Func<string, string> Layout;
 
         //
-        // private Helpers / Components - could be done in numerous ways, here's one example
+        // private Helpers / Components (could be done in numerous different ways)
         //
         string header(string header) { return string.Format("<h1>{0}</h1>", header); }
         string text(string text) { return string.Format("<p>{0}</p>", text); }
@@ -92,13 +112,9 @@ methods
 *Usage from a controller:*
 
 	public string Index() {	
-		var view = new MySimpleView{Header = "This is a header"};
+		var view = new MySimpleView{Header = "This is a header"}; 
 		return view.ToString();
 	}
-
-Note the intentionally vanillaism. We could easily add some helper to for example get to use {header} inside the string, 
-and we could do all kinds of small things to make the view look cleaner. But really they would not help that much, and if we are 
-almost as good with this 100% vanilla way.
 
 Installation:
 
