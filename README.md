@@ -52,9 +52,12 @@ For example in the way I show below.
 
 **A note about DRY and extensibility**
 
-In my sample view I use 100% vanilla code intentionally. Naturally it would be easy to add some helper functions, base
-classes or extension methods to get leaner code. The purpose here is to show a starting point for such work and that HTML
-can be done easily with what we have in C#.
+In my sample view I use 100% vanilla code intentionally with all code explicitly written in the view. Naturally it would be easy to 
+add some helper functions, base classes or extension methods to get leaner code. The purpose here is to show a starting point for 
+such work and that HTML can be done easily with what we have in C#.
+
+However - one of the goals with this is to have as few "surprises" as possible in the code. For readability, maintainability and 
+portability reasons. (I.e. if you add too much abstraction you might end up with views that are harder to maintain in the end.)
 
 **Tests and HTML prototypes**
 Keep the HTML prototypes in a folder in your test project
