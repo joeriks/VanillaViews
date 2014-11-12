@@ -1,8 +1,8 @@
 Vanilla C# views
 ================
 
-tl;dr; if you are good at C# and like DRY, refactoring and TDD, and if you usually get ready made HTML, then you'll probably get more
-productive with pure C# (creating HTML strings) than with Razor.
+**tl;dr; if you are good at C#, and like things like DRY, refactoring and TDD. And if you usually get ready made HTML to work with.
+Then I think you will be more productive with pure C# (creating HTML strings) than with Razor.**
 
 Mixing languages is always a source of possible friction, Microsoft did a great work creating the Razor View Engine. But
 I think it sometimes add more problems than it solves. An initial assumption is that we need to keep HTML files separate from
