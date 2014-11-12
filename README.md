@@ -84,8 +84,7 @@ cacheing or other methods to speed it up.
         string listItems(string[] texts) { return (texts != null && texts.Length > 0) ? string.Format("<ul>{0}</ul>", string.Concat(texts.Select(t => li(t)))) : ""; }
 
 		// 
-		// naturally global helpers can be used to make our views as DRY as needed, the idea is 
-		// use C# with its possibilities
+		// naturally global helpers can be used to make our views as DRY as needed
 		//
 
         //
@@ -101,7 +100,7 @@ cacheing or other methods to speed it up.
                 string.Concat(
 
                     /* here we use the components which are named with their usage / intent in mind
-                        * which means we can easily change the necessary tag structure with intent 
+                        * which means we can easily for example change the necessary tag structure with intent 
 						* kept intact */
 
                     header(Header),
@@ -118,7 +117,8 @@ cacheing or other methods to speed it up.
 **Usage from a controller:**
 
 	public string Index() {	
-		var view = new MySimpleView{Header = "This is a header"}; 
+		var view = new IndexViewVanilla{Header = "This is a header"}; 
+		view.Layout = new Func<string, string>(s => new LayoutView(s).ToString());
 		return view.ToString();
 	}
 
