@@ -64,11 +64,9 @@ Keep the HTML prototypes in a folder in your test project
 Then compare your views with the contents of those files. Use HtmlAgilityPack or CsQuery to be able to compare the HTML - or parts
 of the HTML easily.
 
-**Performance**
-
-Vanilla views might be a little bit less performant if we create complex structures with lots of levels = lots of function calls, 
-but I find that risk small, and probably not noticeable in a real life web application. Also - if we go that far we could add 
-cacheing or other methods to speed it up.
+**Performance and compilation**
+Vanilla views are as fast as regular code. One feature with Razor is that you can edit it during runtime, since it can recompile 
+dynamically if you like that feature vanilla views might not be for you (at least not without Roslyn).
 
 **Sample view:**
 
