@@ -1,10 +1,10 @@
-VanillaViews
-============
+Vanilla C# views
+================
 
-Vanilla C# #noViewEngine ;)
+#noViewEngine ;)
 
 Mixing languages is always a source of possible friction, Microsoft did a great work creating the Razor View Engine. But
-I think it sometimes add more problems that is solves. An initial assumption is that we need to keep HTML files separate from
+I think it sometimes add more problems than it solves. An initial assumption is that we need to keep HTML files separate from
 our C# code. Because (at least I think this is the reason) we like HTML-designers to handle the HTML files in a project. However -
 with Razor our designers need to understand both Razor syntax, and how the data is structured in our application. From my experience
 the designers are most happy when they can focus 100% on the HTML part, creating pure HTML prototypes.
@@ -19,12 +19,12 @@ can refactor my C# how much I want.
 I'm usually responsible for the application, and to extend and reuse the design components in a maintainable way. When I use Razor I 
 often find myself using more complicated, less testable and less DRY code compared to when I do it with pure vanilla C#.
 
-**Things I get in Vanilla Views compared to in Razor:**
+**Things I get in "vanilla views" compared to in Razor:**
 
 - Real static typed views with IDE help like
+	- correct types
 	- navigate to
 	- find usages
-	- misspelled
 	- helptext
 - I can reuse helpers the way I'm used to in C#
 - I can test the views completely outside of web context
@@ -33,11 +33,21 @@ often find myself using more complicated, less testable and less DRY code compar
 **One way to work with vanilla views**
 
 1) Create (or get from someone who actually knows HTML better...) pure HTML prototype (s)
+
 2) Identify repeated and dynamic parts
+
 3) Build tests that renders views and compares them to the HTML prototypes (as files or URLs)
+
 4) Create Views and Subviews/components the way you always work in C# (classes / inheritance / DI / whatever you need)
+
 5) Make tests pass
+
 6) Repeat 4-5 to refactor as much as you like
+
+** Ok, so what is a vanilla view? **
+
+It's simply a C# function that returns a string! Using the standard string handling, linq, class structure and whatever you find useful. 
+For example in the way I show below.
 
 **A note about dry and extensibility**
 
