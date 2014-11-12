@@ -5,34 +5,32 @@ Vanilla C# #noViewEngine ;)
 
 Mixing languages is always a source of possible friction, Microsoft did a great work creating the Razor View Engine. But
 I think it sometimes add more problems that is solves. An initial assumption is that we need to keep HTML files separate from
-our C# code. Because (at least I think this is the reason) we like HTML-designers handle the HTML files in a project. However -
+our C# code. Because (at least I think this is the reason) we like HTML-designers to handle the HTML files in a project. However -
 with Razor our designers need to understand both Razor syntax, and how the data is structured in our application. From my experience
 the designers are most happy when they can focus 100% on the HTML part, creating pure HTML prototypes.
 
 From ready made, nicely designed HTML prototypes, I find it to be a rather small part of the work to re-create the HTML dynamically
-from C#. And when I get another HTML page to add to the project, or some existing page gets redesigned, it's really not much work
-to redo it either.
+from C# functions. And when I get another HTML page to add to the project, or some existing page gets redesigned, it's really not much 
+work to redo it either.
 
-With vanilla C#-to HTML code I can easily create tests which I run until I'm done with the actual code. Also, I keep the tests and can 
-refactor my C# how much I want.
+Also with vanilla C#-to HTML code I can easily create tests which I run until I'm done with the actual code. Also, I keep the tests and 
+can refactor my C# how much I want.
 
-I'm responsible for the application, and to extend and reuse the design components in a maintainable way. When I use Razor I often find
-myself using more complicated, less testable and less DRY code compared to when I do it with pure vanilla C#.
+I'm usually responsible for the application, and to extend and reuse the design components in a maintainable way. When I use Razor I 
+often find myself using more complicated, less testable and less DRY code compared to when I do it with pure vanilla C#.
 
-**Things I dislike in Razor which I get easily in Vanilla Views:**
+**Things I get in Vanilla Views compared to in Razor:**
 
-- Real static typed views. I know in the controller which view I'm and I get the intellisense help I'm used
-to like 
+- Real static typed views with IDE help like
 	- navigate to
 	- find usages
-	- misspelled squiggles
+	- misspelled
 	- helptext
-- I can reuse helpers (which are same kind of vanilla views, or plain text functions) the way I'm used to
-- I can test the views completely free from web context since they simply are classes with overridden ToString()
-methods
-- I 
+- I can reuse helpers the way I'm used to in C#
+- I can test the views completely outside of web context
+- I can use my views for things like Emails or HTML-based reports
 
-**One way or work that works good with this method**
+**One way to work with vanilla views**
 
 1) Create (or get from someone who actually knows HTML better...) pure HTML prototype (s)
 2) Identify repeated and dynamic parts
