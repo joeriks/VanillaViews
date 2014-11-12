@@ -44,12 +44,12 @@ often find myself using more complicated, less testable and less DRY code compar
 
 6) Repeat 4-5 to refactor as much as you like
 
-** Ok, so what is a vanilla view? **
+**Ok, so what *is* a vanilla view?**
 
 It's simply a C# function that returns a string! Using the standard string handling, linq, class structure and whatever you find useful. 
 For example in the way I show below.
 
-**A note about dry and extensibility**
+**A note about DRY and extensibility**
 
 In my sample view I use 100% vanilla code intentionally. Naturally it would be easy to add some helper functions, base
 classes or extension methods to get leaner code. The purpose here is to show a starting point for such work and that HTML
@@ -69,7 +69,6 @@ cacheing or other methods to speed it up.
         // Exposed Viewmodel properties (could be fields, and could be set from a constructor)
         //
         public string Header {get;set;}
-        public string Text {get;set;}
         public string[] ListItems {get;set;}
 
         //
@@ -81,7 +80,6 @@ cacheing or other methods to speed it up.
         // private Helpers / Components (could be done in numerous different ways)
         //
         string header(string header) { return string.Format("<h1>{0}</h1>", header); }
-        string text(string text) { return string.Format("<p>{0}</p>", text); }
         string li(string text) { return string.Format("<li>{0}</li>", text); }
         string listItems(string[] texts) { return (texts != null && texts.Length > 0) ? string.Format("<ul>{0}</ul>", string.Concat(texts.Select(t => li(t)))) : ""; }
 
@@ -103,13 +101,13 @@ cacheing or other methods to speed it up.
                 string.Concat(
 
                     /* here we use the components which are named with their usage / intent in mind
-                        * which means we can easily change the necessary tag structure with intent kept intact */
+                        * which means we can easily change the necessary tag structure with intent 
+						* kept intact */
 
                     header(Header),
 
-                    text(Text),
-
-                    /* the listItems takes an array of strings as input, no risk of sending it incompatible data */
+                    /* the listItems takes an array of strings as input, no risk of sending it 
+					 * incompatible data */
 
                     listItems(ListItems)
 
@@ -117,14 +115,14 @@ cacheing or other methods to speed it up.
         }
     }
 
-*Usage from a controller:*
+**Usage from a controller:**
 
 	public string Index() {	
 		var view = new MySimpleView{Header = "This is a header"}; 
 		return view.ToString();
 	}
 
-Installation:
+**Installation:**
 
 Nuget:
 
