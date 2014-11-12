@@ -4,6 +4,8 @@ Vanilla C# views
 **tl;dr; if you are good at C#, and like things like DRY, refactoring and TDD. And if you usually get ready made HTML to work with.
 Then I think you will be more productive with pure C# (creating HTML strings) than with Razor.**
 
+"So why use Razor at all? Content should come from content mgnt. And HTML structures should be components, where C# shines"
+
 Mixing languages is always a source of possible friction, Microsoft did a great work creating the Razor View Engine. But
 I think it sometimes add more problems than it solves. An initial assumption is that we need to keep HTML files separate from
 our C# code. Because (at least I think this is the reason) we like HTML-designers to handle the HTML files in a project. However -
