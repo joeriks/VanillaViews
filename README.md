@@ -4,7 +4,7 @@ Vanilla C# views
 **tl;dr; if you are good at C#, and like things like DRY, refactoring and TDD. And if you usually get ready made HTML to work with.
 Then I think you will be more productive with pure C# (creating HTML strings) than with Razor.**
 
-"So why use Razor at all? Content should come from content mgnt. And HTML structures should be components, where C# shines"
+**"So why use Razor at all? Content should come from content mgnt. And HTML structures should be components, where C# shines"**
 
 Mixing languages is always a source of possible friction, Microsoft did a great work creating the Razor View Engine. But
 I think it sometimes add more problems than it solves. An initial assumption is that we need to keep HTML files separate from
@@ -41,9 +41,9 @@ Let's say we'd like to use a partial view for a small thing like a panel display
 
 Besides the view file, we also need the following pieces
 
-	a PanelInformation ViewModel with the necessary properties
-	a PanelInformation action in the controller, returning a PartialView - with the same name as the view (or naming it explicitly)
-	render the action result in our main view @Html.Action("Home","PanelInformation")
+* a PanelInformation ViewModel with the necessary properties
+* a PanelInformation action in the controller, returning a PartialView - with the same name as the view (or naming it explicitly)
+* render the action result in our main view @Html.Action("Home","PanelInformation")
 
 Contrasting the normal C# way of how we work with code we've got three pitfalls here since we use file names (action name == view file 
 name) and strings to connect our pieces. That means IDE help gets lost and refactoring gets a lot more complicated than with regular C#.
