@@ -54,11 +54,13 @@ after all one of the reasons to use a partial view in the first place).
 
 Yes, we could use 3rd party tools to get some help here. But really - is that what we like for a basic thing like this?
 
-**Razor does give us a few things we might miss**
+**Things we might miss**
 
 We do get a warm and fuzzy feeling having the HTML separated into files in the Views folder, and we can say - if something needs to 
 be changed in the HTML - look in the views folder. (But be sure to not mess up anything, test it visually, and repeat the changes in 
 all recessary files if the HTML structure is not fully DRYed, for example add a <div class="something">.. around all lists of some kind).
+
+**Enterprise coder: "Hey, I've got 100 forms, I need my ModelFor"**
 
 The Razor DisplayFor and EditorFor extension methods. (I don't use those much, but I guess if you do you'd need to find a replacement.)
 
