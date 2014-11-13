@@ -12,7 +12,7 @@ our C# code. Because (at least I think this is the reason) we like HTML-designer
 with Razor our designers need to understand both Razor syntax, and how the data is structured in our application. From my experience
 the designers are most happy when they can focus 100% on the HTML part, creating pure HTML prototypes.
 
-**Designer: "gaah, what is this mess?"**
+**Designer: "Gaah, what is this cshtml mess? Here - take my prototypes, and you do the rest!"**
 
 From ready made, nicely designed HTML prototypes, I find it to be a rather small part of the work to re-create the HTML dynamically
 from C# functions. And when I get another HTML page to add to the project, or some existing page gets redesigned, it's really not much 
