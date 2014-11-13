@@ -43,6 +43,8 @@ namespace VanillaViews.MVC.Views
 
                     text(Text),                    
 
+                    
+
                     /* the listItems takes an array of strings as input, no risk of sending it incompatible data */
 
                     listItems(ListItems)
