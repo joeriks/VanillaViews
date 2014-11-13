@@ -12,12 +12,16 @@ our C# code. Because (at least I think this is the reason) we like HTML-designer
 with Razor our designers need to understand both Razor syntax, and how the data is structured in our application. From my experience
 the designers are most happy when they can focus 100% on the HTML part, creating pure HTML prototypes.
 
+**Designer: "gaah, what is this mess?"**
+
 From ready made, nicely designed HTML prototypes, I find it to be a rather small part of the work to re-create the HTML dynamically
 from C# functions. And when I get another HTML page to add to the project, or some existing page gets redesigned, it's really not much 
 work to redo it either.
 
 Also with vanilla C#-to HTML code I can easily create tests which I run until I'm done with the actual code. Also, I keep the tests and 
 can refactor my C# how much I want.
+
+**Boss: "I said change it everywhere!"**
 
 I'm usually responsible for the application, and to extend and reuse the design components in a maintainable way. When I use Razor I 
 often find myself using more complicated, less testable and less DRY code compared to when I do it with pure vanilla C#.
@@ -50,12 +54,13 @@ after all one of the reasons to use a partial view in the first place).
 
 Yes, we could use 3rd party tools to get some help here. But really - is that what we like for a basic thing like this?
 
-**Razor - the good parts**
+**Razor does give us a few things we might miss**
 
 We do get a warm and fuzzy feeling having the HTML separated into files in the Views folder, and we can say - if something needs to 
-be changed in the HTML - look in the views folder. 
+be changed in the HTML - look in the views folder. (But be sure to not mess up anything, test it visually, and repeat the changes in 
+all recessary files if the HTML structure is not fully DRYed, for example add a <div class="something">.. around all lists of some kind).
 
-The Razor DisplayFor and EditorFor extension methods are beautiful and mostly works the way we'd like.
+The Razor DisplayFor and EditorFor extension methods. (I don't use those much, but I guess if you do you'd need to find a replacement.)
 
 **Things I get in "vanilla views" compared to in Razor:**
 
