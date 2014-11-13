@@ -21,10 +21,13 @@ work to redo it either.
 Also with vanilla C#-to HTML code I can easily create tests which I run until I'm done with the actual code. Also, I keep the tests and 
 can refactor my C# how much I want.
 
-**Boss: "I said change it everywhere!"**
+**Boss: "I said change it _everywhere_!"**
 
 I'm usually responsible for the application, and to extend and reuse the design components in a maintainable way. When I use Razor I 
 often find myself using more complicated, less testable and less DRY code compared to when I do it with pure vanilla C#.
+
+Changing a piece of HTML structure in several places in the application is usual as part of maintenance, but with razor it usually 
+involves error prone text search-and-replacing and quite a bit of manual testing.
 
 Let's say we'd like to use a partial view for a small thing like a panel displaying some information from different pages:
 
