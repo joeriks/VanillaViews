@@ -95,6 +95,8 @@ The Razor extension methods are nice sometimes. (I don't use those much, but I g
 5. Make tests pass
 6. Repeat 4-5 to refactor as much as you like
 
+[Checkout the TDD sample test file](../VanillaViews.MVC/VanillaViews.Bootstrap.Tests/JustifiedNavTest.cs)
+
 **Ok, so what *is* a vanilla view?**
 
 **It's simply a C# function that returns a string!** Using the standard string handling, linq, class structure and whatever you find useful. 
