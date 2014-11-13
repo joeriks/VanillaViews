@@ -11,7 +11,13 @@ namespace VanillaViews.Bootstrap.Tests
         [TestMethod]
         public void JustifiedNavTest()
         {
-            // create the data
+            // First we need the HTML prototype - in this case from an URL (wooo)
+            // (could be from a local file path aswell, for those not as daring...)
+
+            // I'm using the CsQuery library for this which 
+            var expected = CsQuery.CQ.CreateFromUrl(@"http://getbootstrap.com/examples/justified-nav/")["div [role='navigation']"].RenderSelection();
+
+            // Then create the dynamic part 
 
             var view = new JustifiedNavView(
                 new JustifiedNavView.Link { IsActive = true, Url = "#", Text = "Home" },
@@ -22,19 +28,14 @@ namespace VanillaViews.Bootstrap.Tests
                 new JustifiedNavView.Link { Url = "#", Text = "Contact" }
             );
 
-            // render view and reindent it
+            // Next create a code stub and call it
             
-            var actual = PrettyXml.Reindent(view.ToString());
+            var actual = view.ToString();
+            
+            // Now .. run (or keep running) until you written the code, are happy with it and test pass
 
-            // get sample from bootstrap site - using CsQuery - and reindent it
-
-            // alternatively use locally saved file
-
-            var expected = PrettyXml.Reindent(CsQuery.CQ.CreateFromUrl(@"http://getbootstrap.com/examples/justified-nav/")["div [role='navigation']"].RenderSelection());
-
-            // now create the actual view ... until tests pass
-
-            Assert.AreEqual(expected, actual);
+            // We run the HTML through a reindenter to compare the tags and not the indentation
+            Assert.AreEqual(PrettyXml.Reindent(expected), PrettyXml.Reindent(actual));
 
 
         }
