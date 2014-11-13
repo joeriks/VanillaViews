@@ -59,6 +59,8 @@ after all one of the reasons to use a partial view in the first place).
 
 Yes, we could use 3rd party tools to get some help here. But really - is that what we like for a basic thing like this?
 
+*And again - why not use old friend C#?*
+
 **Things we might miss**
 
 We do get a warm and fuzzy feeling having the HTML separated into files in the Views folder, and we can say - if something needs to 
