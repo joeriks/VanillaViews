@@ -14,7 +14,8 @@ namespace VanillaViews.Bootstrap.Tests
             // First we need the HTML prototype - in this case from an URL (wooo)
             // (could be from a local file path aswell, for those not as daring...)
 
-            // I'm using the CsQuery library for this which 
+            // I'm using the CsQuery library for this which means I can get a piece of the HTML with
+            // jquery style selectors:
             var expected = CsQuery.CQ.CreateFromUrl(@"http://getbootstrap.com/examples/justified-nav/")["div [role='navigation']"].RenderSelection();
 
             // Then create the dynamic part 
