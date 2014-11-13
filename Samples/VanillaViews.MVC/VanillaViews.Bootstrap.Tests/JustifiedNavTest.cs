@@ -18,7 +18,7 @@ namespace VanillaViews.Bootstrap.Tests
             // jquery style selectors:
             var expected = CsQuery.CQ.CreateFromUrl(@"http://getbootstrap.com/examples/justified-nav/")["div [role='navigation']"].RenderSelection();
 
-            // Then create the dynamic part 
+            // Then create the class and instantiate it
 
             var view = new JustifiedNavView(
                 new JustifiedNavView.Link { IsActive = true, Url = "#", Text = "Home" },
@@ -29,13 +29,14 @@ namespace VanillaViews.Bootstrap.Tests
                 new JustifiedNavView.Link { Url = "#", Text = "Contact" }
             );
 
-            // Next create a code stub and call it
+            // In my case ToString renders the view
             
             var actual = view.ToString();
             
-            // Now .. run (or keep running) until you written the code, are happy with it and test pass
+            // Now run (or keep running) the test until you finished with the code, 
+            // are happy with it and the test pass
 
-            // We run the HTML through a reindenter to compare the tags and not the indentation
+            // We pass the HTML through a reindenter to compare the tags and not the indentation
             Assert.AreEqual(PrettyXml.Reindent(expected), PrettyXml.Reindent(actual));
 
 
