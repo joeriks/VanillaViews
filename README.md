@@ -40,10 +40,10 @@ Let's say we'd like to use a partial view for a small thing like a panel display
 
 	<div class="panel">
 		<div class="panel-head">
-			<h2>@PanelInformation.Header</h2>
+			<h2>@Model.Header</h2>
 		</div>
 		<div class="panel-body">
-			@PanelInformation.Body
+			@Model.Body
 		</div>
 	</div>
 
