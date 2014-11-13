@@ -41,12 +41,14 @@ Besides the view file, we also need the following pieces
 	a PanelInformation action in the controller, returning a PartialView - with the same name as the view (or naming it explicitly)
 	render the action result in our main view @Html.Action("Home","PanelInformation")
 
-Contrasting the normal C# way of how we work with code we've got three pitfalls here since we use names and strings to connect our 
-pieces. That means refactoring gets a lot more complicated than with regular C#.
+Contrasting the normal C# way of how we work with code we've got three pitfalls here since we use file names (action name == view file 
+name) and strings to connect our pieces. That means IDE help gets lost and refactoring gets a lot more complicated than with regular C#.
 
 If we like to rename the panel to something else we need to change it in three different places, and we get no help showing if we 
 misspelled or missed to rename the view, or if we missed in the main view. Imagine if we called it from multiple of views (which is
 after all one of the reasons to use a partial view in the first place).
+
+Yes, we could use 3rd party tools to get some help here. But really - is that what we like for a basic thing like this?
 
 **Razor - the good parts**
 
