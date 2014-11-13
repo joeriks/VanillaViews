@@ -45,8 +45,8 @@ Besides the view file, we also need the following pieces
 * a PanelInformation action in the controller, returning a PartialView - with the same name as the view (or naming it explicitly)
 * render the action result in our main view @Html.Action("Home","PanelInformation")
 
-Contrasting the normal C# way of how we work with code we've got three pitfalls here since we use file names (action name == view file 
-name) and strings to connect our pieces. That means IDE help gets lost and refactoring gets a lot more complicated than with regular C#.
+*Contrasting the normal C# way of how we work with code we've got three pitfalls here since we use file names (action name == view file 
+name) and strings to connect our pieces. That means IDE help gets lost and refactoring gets a lot more complicated than with regular C#.*
 
 If we like to rename the panel to something else we need to change it in three different places, and we get no help showing if we 
 misspelled or missed to rename the view, or if we missed in the main view. Imagine if we called it from multiple of views (which is
@@ -62,7 +62,7 @@ all recessary files if the HTML structure is not fully DRYed, for example add a 
 
 **Enterprise coder: "Hey, I've got 100 forms, I need my ModelFor"**
 
-The Razor DisplayFor and EditorFor extension methods. (I don't use those much, but I guess if you do you'd need to find a replacement.)
+The Razor extension methods are nice sometimes. (I don't use those much, but I guess if you do you'd need to find a replacement.)
 
 **Things I get in "vanilla views" compared to in Razor:**
 
