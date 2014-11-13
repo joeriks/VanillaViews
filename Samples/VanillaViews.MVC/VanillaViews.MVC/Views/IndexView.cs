@@ -37,11 +37,11 @@ namespace VanillaViews.MVC.Views
                 string.Concat(
 
                     /* here we use the components which are named with their usage / intent in mind
-                        * which means we can easily change the necessary tag structure with intent kept intact */
+                     * which means we can easily change the necessary tag structure with intent kept intact */
 
                     header(Header),
 
-                    text(Text),
+                    text(Text),                    
 
                     /* the listItems takes an array of strings as input, no risk of sending it incompatible data */
 

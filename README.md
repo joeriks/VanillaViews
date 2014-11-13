@@ -22,30 +22,59 @@ can refactor my C# how much I want.
 I'm usually responsible for the application, and to extend and reuse the design components in a maintainable way. When I use Razor I 
 often find myself using more complicated, less testable and less DRY code compared to when I do it with pure vanilla C#.
 
+Let's say we'd like to use a partial view for a small thing like a panel displaying some information from different pages:
+
+	@model ViewModels.PanelInformation
+
+	<div class="panel">
+		<div class="panel-head">
+			<h2>@PanelInformation.Header</h2>
+		</div>
+		<div class="panel-body">
+			@PanelInformation.Body
+		</div>
+	</div>
+
+Besides the view file, we also need the following pieces
+
+	a PanelInformation ViewModel with the necessary properties
+	a PanelInformation action in the controller, returning a PartialView - with the same name as the view (or naming it explicitly)
+	render the action result in our main view @Html.Action("Home","PanelInformation")
+
+Contrasting the normal C# way of how we work with code we've got three pitfalls here since we use names and strings to connect our 
+pieces. That means refactoring gets a lot more complicated than with regular C#.
+
+If we like to rename the panel to something else we need to change it in three different places, and we get no help showing if we 
+misspelled or missed to rename the view, or if we missed in the main view. Imagine if we called it from multiple of views (which is
+after all one of the reasons to use a partial view in the first place).
+
+**Razor - the good parts**
+
+We do get a warm and fuzzy feeling having the HTML separated into files in the Views folder, and we can say - if something needs to 
+be changed in the HTML - look in the views folder. 
+
+The Razor DisplayFor and EditorFor extension methods are beautiful and mostly works the way we'd like.
+
 **Things I get in "vanilla views" compared to in Razor:**
 
 - Real static typed views with IDE help like
-	- correct types
+	- refactor
+	- correct types	
 	- navigate to
 	- find usages
-	- helptext
+	- tooltip
 - I can reuse helpers the way I'm used to in C#
 - I can test the views completely outside of web context
 - I can use my views for things like Emails or HTML-based reports
 
 **One way to work with vanilla views**
 
-1) Create (or get from someone who actually knows HTML better...) pure HTML prototype (s)
-
-2) Identify repeated and dynamic parts
-
-3) Build tests that renders views and compares them to the HTML prototypes (as files or URLs)
-
-4) Create Views and Subviews/components the way you always work in C# (classes / inheritance / DI / whatever you need)
-
-5) Make tests pass
-
-6) Repeat 4-5 to refactor as much as you like
+1. Create (or get from someone who actually knows HTML better...) pure HTML prototype (s)
+2. Identify repeated and dynamic parts
+3. Build tests that renders views and compares them to the HTML prototypes (as files or URLs)
+4. Create Views and Subviews/components the way you always work in C# (classes / inheritance / DI / whatever you need)
+5. Make tests pass
+6. Repeat 4-5 to refactor as much as you like
 
 **Ok, so what *is* a vanilla view?**
 
