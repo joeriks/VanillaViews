@@ -87,7 +87,7 @@ The Razor extension methods are nice sometimes. (I don't use those much, but I g
 
 **Ok, so what *is* a vanilla view?**
 
-It's simply a C# function that returns a string! Using the standard string handling, linq, class structure and whatever you find useful. 
+**It's simply a C# function that returns a string!** Using the standard string handling, linq, class structure and whatever you find useful. 
 For example in the way I show below.
 
 **A note about DRY and extensibility**
