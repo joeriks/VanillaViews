@@ -13,13 +13,13 @@ namespace VanillaViews.Bootstrap.Tests
         {
             // create the data
 
-            var view = new JustifiedNav(
-                new JustifiedNav.Link{ IsActive=true,Url="#",Text="Home" },
-                new JustifiedNav.Link{ Url="#",Text="Projects" },
-                new JustifiedNav.Link{ Url="#",Text="Services" },
-                new JustifiedNav.Link{ Url="#",Text="Downloads" },
-                new JustifiedNav.Link{ Url="#",Text="About" },
-                new JustifiedNav.Link{ Url="#",Text="Contact" }
+            var view = new JustifiedNavView(
+                new JustifiedNavView.Link { IsActive = true, Url = "#", Text = "Home" },
+                new JustifiedNavView.Link { Url = "#", Text = "Projects" },
+                new JustifiedNavView.Link { Url = "#", Text = "Services" },
+                new JustifiedNavView.Link { Url = "#", Text = "Downloads" },
+                new JustifiedNavView.Link { Url = "#", Text = "About" },
+                new JustifiedNavView.Link { Url = "#", Text = "Contact" }
             );
 
             // render view and reindent it
