@@ -29,6 +29,8 @@ often find myself using more complicated, less testable and less DRY code compar
 Changing a piece of HTML structure in several places in the application is usual as part of maintenance, but with razor it usually 
 involves error prone text search-and-replacing and quite a bit of manual testing.
 
+**Partial Views**
+
 Let's say we'd like to use a partial view for a small thing like a panel displaying some information from different pages:
 
 	@model ViewModels.PanelInformation
